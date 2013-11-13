@@ -17,7 +17,11 @@ function wf_weather_feed( $atts, $content = null ) {
 	if ( !isset( $weather_feed_options['weather_cache'] ) )
 		return;
 
-	return var_export( $weather_feed_options['weather_cache'], true);
+	require_once('libs/forecastio/forecast.io.php');
+
+	$icon = '<img src="' . WF_URL_PATH . '/images/icons/svg/' . $weather_feed_options['weather_cache']['icon'] . '.svg" alt="" height="64" width="64" />';
+
+	return $icon . var_export( $weather_feed_options['weather_cache'], true);
 
 	// SET UP OUTPUT AND GET CACHED weather FEED FILE
 	$weather_output = '';

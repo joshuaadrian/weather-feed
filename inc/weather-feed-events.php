@@ -20,20 +20,18 @@ function wf_weather_call() {
 
 		require_once('libs/forecastio/forecast.io.php');
 
-		$api_key = $weather_feed_options['forecastio_api_key'];
-
-		$latitude = $weather_feed_options['weather_lattitude'];
-		$longitude = $weather_feed_options['weather_longitude'];
-
-		$forecast = new ForecastIO($api_key);
-
-		$condition = $forecast->getCurrentConditions($latitude, $longitude);
-
-		if ( $condition ) {
-			$weather_feed_options['weather_cache'] = $condition;
-			$weather_feed_options['forecast_io_log'] = date("F j, Y, g:i a") . ' instagram success json => ' . $forecast_io_weather . ' | rest call url =>  ' . $forecast_io_url . "\r\n\n";
+		$api_key                   = $weather_feed_options['forecastio_api_key'];
+		$lattitude                 = $weather_feed_options['weather_lattitude'];
+		$longitude                 = $weather_feed_options['weather_longitude'];
+		$forecast                  = new ForecastIO($api_key); _log($forecast);
+		$forecast_io_weather       = $forecast->getCurrentConditions($lattitude, $longitude); 
+		$forecast_io_weather_cache = get_object_vars($forecast_io_weather->raw_data);
+		
+		if ( $forecast_io_weather ) {
+			$weather_feed_options['weather_cache'] = $forecast_io_weather_cache;
+			$weather_feed_options['forecast_io_log'] = date("F j, Y, g:i a") . ' forecast.io success rest call url =>  ' . "\r\n\n";
 		} else {
-			$weather_feed_options['forecast_io_error_log'] = date("F j, Y, g:i a") . ' instagram error json => ' . $forecast_io_weather . ' | rest call url =>  ' . $forecast_io_url . "\r\n\n";
+			$weather_feed_options['forecast_io_error_log'] = date("F j, Y, g:i a") . ' instagram error json => ' . $forecast_io_weather . "\r\n\n";
 		}
 
 	}

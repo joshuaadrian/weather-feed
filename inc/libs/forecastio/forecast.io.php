@@ -173,7 +173,7 @@ class ForecastIO{
  */
 class ForecastIOConditions{
   
-  private $raw_data;
+  public $raw_data;
   
   function __construct($raw_data) {
     
