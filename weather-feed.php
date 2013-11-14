@@ -192,7 +192,10 @@ function wf_render_form() {
 					    		<label for="weather_longitude">Weather Longitude</label>
 					    	</th>
 					    	<td> 
-					    		<input type="text" size="57" name="wf_options[weather_longitude]" value="<?php echo $options['weather_longitude']; ?>" />
+					    		<input type="text" size="57" name="wf_options[weather_longitude]" value="<?php echo $options['weather_longitude']; ?>" /><br />
+					    		<span class="help">Easily find any location's lattitude / longitude at <a href="http://www.mashupsoft.com/" target="_blank">mashupsoft.com</a></span>
+
+					    		
 							</td>
 						</tr>
 					</table>
