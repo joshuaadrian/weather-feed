@@ -26,12 +26,13 @@ function wf_weather_call() {
 		$forecast                  = new ForecastIO($api_key); _log($forecast);
 		$forecast_io_weather       = $forecast->getCurrentConditions($lattitude, $longitude); 
 		$forecast_io_weather_cache = get_object_vars($forecast_io_weather->raw_data);
+		_log( var_export($forecast_io_weather_cache, true) );
 		
 		if ( $forecast_io_weather ) {
-			$weather_feed_options['weather_cache'] = $forecast_io_weather_cache;
+			$weather_feed_options['weather_cache']   = $forecast_io_weather_cache;
 			$weather_feed_options['forecast_io_log'] = date("F j, Y, g:i a") . ' forecast.io success rest call url =>  ' . "\r\n\n";
 		} else {
-			$weather_feed_options['forecast_io_error_log'] = date("F j, Y, g:i a") . ' instagram error json => ' . $forecast_io_weather . "\r\n\n";
+			$weather_feed_options['forecast_io_error_log'] = date("F j, Y, g:i a") . ' forecast.io success rest call url =>  ' . "\r\n\n";
 		}
 
 	}

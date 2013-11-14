@@ -197,6 +197,8 @@
     font-weight: normal; }
   #weather-feed-options .weather-feed-options-section .weather-feed-admin-or {
     padding: 0 10px 5px; }
+  #weather-feed-options .weather-feed-options-section span.help {
+    color: #aaa; }
   #weather-feed-options .weather-feed-options-section .weather-feed-form-action {
     margin: 20px -20px 0;
     background: #d5d5d5;

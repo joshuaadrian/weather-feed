@@ -19,31 +19,19 @@ function wf_weather_feed( $atts, $content = null ) {
 
 	require_once('libs/forecastio/forecast.io.php');
 
-	$icon = '<img src="' . WF_URL_PATH . '/images/icons/svg/' . $weather_feed_options['weather_cache']['icon'] . '.svg" alt="" height="64" width="64" />';
+	$forecast_icons = array('clear-day', 'clear-night', 'rain', 'snow', 'sleet', 'wind', 'fog', 'cloudy', 'partly-cloudy-day', 'partly-cloudy-night');
+	$icon           = in_array( $weather_feed_options['weather_cache']['icon'], $forecast_icons ) ? $weather_feed_options['weather_cache']['icon'] : 'cloudy';
+	$temp           = strstr( $weather_feed_options['weather_cache']['apparentTemperature'], '.', true );
 
-	return $icon . var_export( $weather_feed_options['weather_cache'], true);
-
-	// SET UP OUTPUT AND GET CACHED weather FEED FILE
-	$weather_output = '';
-	$tweets         = $weather_feed_options['weather_cache'];
-
-	if ( $count > 20 || $count < 1 )
-		$count = 4;
-
-	if ( count($tweets) < $count )
-		$count = count($tweets);
-
-	for ( $i = 0; $i < $count; ++$i ) {
-
-		$weather_output .= '<li id="tweet-'.$i.'" class="tweet">';
-		$weather_output .= linkify_weather_status($tweets[$i]['text']);
-		$weather_output .= ' <span class="tweet-time">';
-		$weather_output .= date( "F j, Y", strtotime($tweets[$i]['created_at']));
-		$weather_output .= '</span></li>';
-
+	if ( $weather_feed_options['skin'] != 'none' ) {
+		$icon      = '<img src="' . WF_URL_PATH . '/css/skins/'.$weather_feed_options['skin'].'/icons/svg/' . $icon . '.svg" alt="" />';
+		$temp_icon = '<img src="' . WF_URL_PATH . '/css/skins/'.$weather_feed_options['skin'].'/icons/svg/farenheit.svg" alt="" />';
+	} else {
+		$icon      = ucwords( str_replace('-', ' ', $icon) );
+		$temp_icon = '°F';
 	}
 
-	return '<h4><a href="http://weather.com/' . $weather_feed_options['weather_username'] . '">@' . $weather_feed_options['weather_username'] . '</a></h4><ul class="tweets group">' . $weather_output . '</ul>';
+	return '<div class="weather-feed group"><div class="weather-feed-inner"><span class="weather-feed-temp">' . $temp . '<span class="weather-feed-temp-degree">' . $temp_icon . '</span></span>'.$icon.'</div></div>';
 
 }
 

@@ -5,7 +5,7 @@ Plugin Name: Weather Feed
 Plugin URI: https://github.com/joshuaadrian/weather-feed
 Description: Pull in weather feed. Place them with shortcodes.
 Author: Joshua Adrian
-Version: 0.1.0
+Version: 0.2.0
 Author URI: https://github.com/joshuaadrian/
 */
 
@@ -96,7 +96,7 @@ function wf_add_defaults() {
 
 		$wf_defaults = array(
 			'cron_frequency'     => 'every_fifteen_minutes',
-			'skin'               => 'none',
+			'skin'               => 'super-fresh',
 			'weather_cache'      => '',
 			'weather_error_log'  => '',
 			'weather_log'        => '',
@@ -261,14 +261,11 @@ function wf_render_form() {
 					    		<label for="forecastio_api_key">Forecast.io API Key</label>
 					    	</th>
 					    	<td> 
-					    		<input type="text" size="57" name="wf_options[forecastio_api_key]" value="<?php echo $options['forecastio_api_key']; ?>" id="forecastio_api_key" />
+					    		<input type="text" size="57" name="wf_options[forecastio_api_key]" value="<?php echo $options['forecastio_api_key']; ?>" id="forecastio_api_key" /><br />
+					    		<span class="help">Sign up for a free forecast.io developer account and get your free API key at <a href="https://developer.forecast.io/" target="_blank">forecast.io</a></span>
 							</td>
 						</tr>
 					</table>
-
-
-
-					
 
 		    		<div class="weather-feed-form-action">
 		            	<p><input name="Submit" type="submit" value="<?php esc_attr_e('Update Settings'); ?>" class="button-primary" /></p>

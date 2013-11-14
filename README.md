@@ -35,9 +35,18 @@ None.
 
 ##Changelog
 
+###0.2.0
+
+* Shortcode implemented
+* Custom skin created
+
 ###0.1.0
 
 * Plugin released
+
+##Forecast.io API Key
+
+Sign up for a free forecast.io developer account and get your free API key at [forecast.io](https://developer.forecast.io/)
 
 #Usage
 
@@ -46,10 +55,6 @@ None.
 This is the basic widget will return the tweets in an unordered list.
 
 	[weather_feed]
-
-You can also set the amount of tweets to show, with a max up to 20 and a default of 4.
-
-	[weather_feed location=10]
 
 ##Using the Widgets and Their Options</h2>
 					
