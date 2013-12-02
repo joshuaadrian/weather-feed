@@ -1,3 +1,5 @@
+@import 'icons';
+
 /************************************************************************/
 /* GLOBAL STYLES
 /************************************************************************/
@@ -39,7 +41,7 @@
 			float:left;
 			font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 			font-size: 4em;
-			font-weight: bold;
+			font-weight: normal;
 			font-style: italic;
 			line-height:1;
 			display:block;
@@ -49,29 +51,21 @@
 			
 			}
 
-			img {
-
-				float:none;
-				height:auto;
-				width:36px;
+			i {
+				display:inline-block;
+				line-height:1;
+				font-size:32px;
 				vertical-align: top;
-				position: relative;
-				top: 8px;
-				margin: 0 0 0 8px;
-
+				margin: 6px 20px 0 5px;
 			}
 
 		}
 
-		img {
-
-			float:left;
-			height:auto;
-			width: 46px;
-			margin: 0 0 0 10px;
-			position: relative;
-			top: 8px;
-
+		i {
+			display:inline-block;
+			line-height:1;
+			font-size:58px;
+			margin-top:3px;
 		}
 
 	}

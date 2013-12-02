@@ -14,18 +14,33 @@ function wf_weather_feed( $atts, $content = null ) {
 		'longitude' => ''
 	), $atts ));
 
-	if ( !isset( $weather_feed_options['weather_cache'] ) )
+	if ( false === ( $wf_cache = get_transient( 'wf_forecast' ) ) )
 		return;
 
-	require_once('libs/forecastio/forecast.io.php');
+	$wf_cache = unserialize( $wf_cache );
 
-	$forecast_icons = array('clear-day', 'clear-night', 'rain', 'snow', 'sleet', 'wind', 'fog', 'cloudy', 'partly-cloudy-day', 'partly-cloudy-night');
-	$icon           = in_array( $weather_feed_options['weather_cache']['icon'], $forecast_icons ) ? $weather_feed_options['weather_cache']['icon'] : 'cloudy';
-	$temp           = strstr( $weather_feed_options['weather_cache']['apparentTemperature'], '.', true );
+	_log( $wf_cache );
+
+	$forecast_icons = array(
+		'clear-day'           => 'clear-day',
+		'clear-night'         => 'clear-night',
+		'rain'                => 'rain',
+		'snow'                => 'heavy-snow',
+		'sleet'               => 'light-sleet',
+		'wind'                => 'windy',
+		'fog'                 => 'heavy-fog',
+		'cloudy'              => 'cloudy',
+		'partly-cloudy-day'   => 'partly-cloudy',
+		'partly-cloudy-night' => 'cloudy-night'
+	);
+
+	$icon           = array_key_exists( $wf_cache['currently']['icon'], $forecast_icons ) ? $forecast_icons[$wf_cache['currently']['icon']] : 'cloudy';
+	$temp           = strstr( $wf_cache['currently']['apparentTemperature'], '.', true );
+	$temp_icon      = 'fahrenheit';
 
 	if ( $weather_feed_options['skin'] != 'none' ) {
-		$icon      = '<img src="' . WF_URL_PATH . '/css/skins/'.$weather_feed_options['skin'].'/icons/svg/' . $icon . '.svg" alt="" />';
-		$temp_icon = '<img src="' . WF_URL_PATH . '/css/skins/'.$weather_feed_options['skin'].'/icons/svg/farenheit.svg" alt="" />';
+		$icon      = '<i class="icon-' . $icon . '" ></i>';
+		$temp_icon = '<i class="icon-' . $temp_icon . '" ></i>';
 	} else {
 		$icon      = ucwords( str_replace('-', ' ', $icon) );
 		$temp_icon = '°F';

@@ -95,15 +95,13 @@ function wf_add_defaults() {
 		delete_option( 'wf_options' );
 
 		$wf_defaults = array(
-			'cron_frequency'     => 'every_fifteen_minutes',
-			'skin'               => 'super-fresh',
-			'weather_cache'      => '',
-			'weather_error_log'  => '',
-			'weather_log'        => '',
-			'weather_lattitude'  => '44.983',
-			'weather_longitude'  => '-93.266',
-			'forecastio_api_key' => '',
-			'default_settings'   => ''
+			'cron_frequency'      => 'every_fifteen_minutes',
+			'skin'                => 'super-fresh',
+			'weather_lattitude'   => '44.983',
+			'weather_longitude'   => '-93.266',
+			'weather_measurement' => 'fahrenheit',
+			'forecastio_api_key'  => '',
+			'default_settings'    => ''
 		);
 
 		update_option( 'wf_options', $wf_defaults );

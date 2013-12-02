@@ -1,3 +1,5 @@
+@import 'icons';
+
 .group:after {
   content: "";
   display: table;
@@ -6,6 +8,20 @@
 
 #user_show_permissions, #user_prod_permissions {
 	width: 25em;
+}
+
+.weather-feed {
+
+	.weather-feed-inner {
+
+		i {
+			display:inline-block;
+			line-height:1;
+			font-size:60px;
+		}
+
+	}
+
 }
 
 .loader {
@@ -288,128 +304,6 @@
 				padding:10px;
 				margin:0;
 
-			}
-
-		}
-
-	}
-
-}
-
-/************************************************************************/
-/* ADMIN UI STYLES
-/************************************************************************/
-
-#homepage-secondary-sections,
-#ticket-locations,
-#parking-locations {
-
-	margin: 0;
-	display: inline-block;
-	min-width: 100%;
-	padding: 0px;
-
-	li {
-
-		margin: 0;
-		border-bottom: 1px solid #ddd;
-		border-top: 1px solid #fff;
-		width: 25%;
-		float: left;
-		min-height: 120px;
-		box-sizing: border-box;
-		padding: 10px;
-		background:#f0f0f0;
-
-		&:nth-child(odd) {
-			background:#fcfcfc;
-		}
-
-		&.homepage-secondary-section {
-
-			position:relative;
-			height:100%;
-			display:block;
-
-			@media (max-width: 1400px) {
-				min-height: 160px;
-			}
-
-			@media (max-width: 1200px) {
-				min-height: 200px;
-			}
-
-			@media (max-width: 900px) {
-				min-height: 240px;
-			}
-
-			.homepage_secondary_section_delete {
-
-				height:auto;
-				min-height:auto;
-				position:absolute;
-				background: #ddd;
-				border-radius: 3px;
-				padding: 0 3px;
-				bottom:10px;
-				right:10px;
-				font-size:1em;
-
-				label {
-					height:auto;
-					min-height:inherit;
-				}
-
-			}
-
-			select,
-			.weather-feed-file-uploader {
-
-				margin: 10px 0;
-
-			}
-
-			.weather-feed-file-uploader {
-
-				input[type="text"] {
-					max-width: 100%;
-				}
-
-			}
-
-			select {
-				max-width: 100%;
-			}
-
-		}
-
-		label {
-
-			position:relative;
-			height:100%;
-			display:block;
-
-			@media (max-width: 1400px) {
-				min-height: 160px;
-			}
-
-			@media (max-width: 1200px) {
-				min-height: 200px;
-			}
-
-			@media (max-width: 900px) {
-				min-height: 240px;
-			}
-
-			.ticket-locations-delete,
-			.parking-locations-delete {
-				position:absolute;
-				background: #ddd;
-				border-radius: 3px;
-				padding: 0 3px;
-				bottom:0px;
-				right:0px;
-				font-size:1em;
 			}
 
 		}
