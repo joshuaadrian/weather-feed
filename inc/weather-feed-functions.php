@@ -21,10 +21,14 @@ if ( false === ( $wf_cache = get_transient( 'wf_forecast' ) ) ) {
 		$wf_result = wp_remote_get( $wf_url, $wf_forecast_args );
 
 		if ( is_wp_error( $wf_result ) ) {
-		   $error_message = $wf_result->get_error_message();
-		   _log("Weather Feed API Error => $error_message");
+
+		  $error_message = $wf_result->get_error_message();
+		  if ( $weather_feed_options['debug'] ) _log("Weather Feed API Error => $error_message");
+
 		} else {
+
 			set_transient( 'wf_forecast', serialize( json_decode( $wf_result['body'], true, 100 ) ), 60 * 15 );
+		
 		}
 
 	}

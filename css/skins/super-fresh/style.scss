@@ -28,44 +28,58 @@
 
 	.weather-feed-inner {
 	
-		float:left;
+		display: block;
 		padding:5px 10px;
-		border-radius:3px;
-		background:#f5f5f5;
-		border-width: 1px;
+		background:#dfdfdf;
+		border-width: 0 0 4px;
 		border-style: solid;
-		border-color: #ddd #ccc #bbb;
+		border-color: #333;
+		width:160px;
+		position: relative;
+
+		.wf-summary {
+			display: block;
+			text-align: center;
+			text-transform: uppercase;
+			font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+			font-size: 0.85em;
+			margin:5px 0 0;
+		}
 		
 		.weather-feed-temp {
 
-			float:left;
+			display: block;
+			text-align: center;
 			font-family: Futura, "Trebuchet MS", Arial, sans-serif;
-			font-size: 4em;
+			font-size: 0.6em;
 			font-weight: normal;
-			font-style: italic;
 			line-height:1;
-			display:block;
-			letter-spacing:-5px;
-
-			.weather-feed-temp-degree {
-			
-			}
+			letter-spacing:1px;
+			text-transform: uppercase;
+			margin:5px 0 5px;
 
 			i {
 				display:inline-block;
 				line-height:1;
-				font-size:32px;
+				font-size:1em;
 				vertical-align: top;
-				margin: 6px 20px 0 5px;
+				margin: -1px 0 0 5px;
+
 			}
 
 		}
 
-		i {
-			display:inline-block;
-			line-height:1;
-			font-size:58px;
-			margin-top:3px;
+		.wf-icon {
+
+			i {
+				display:block;
+				line-height:1;
+				font-size:100px;
+				margin-top:5px;
+				text-align: center;
+				color: #333;
+			}
+
 		}
 
 	}
