@@ -56,7 +56,7 @@ add_filter( 'plugin_action_links', 'wf_plugin_action_links', 10, 2 );
 // GET OPTION
 $weather_feed_options = get_option('wf_options');
 
-if ( $weather_feed_options['debug'] ) {
+if ( isset( $weather_feed_options['debug'] ) && $weather_feed_options['debug'] ) {
 	_log( $weather_feed_options );
 }
 
@@ -69,7 +69,7 @@ if ( is_admin() ) {
 }
 
 if ( !function_exists('markdown') ) {
-	require_once WF_PATH . 'inc/libs/php-markdown/markdown.php';
+	require_once WF_PATH . 'assets/libs/php-markdown/markdown.php';
 }
 
 /************************************************************************/
@@ -440,6 +440,6 @@ add_action('wp_enqueue_scripts', 'weather_feed_skin_styles');
 /* INCLUDES
 /************************************************************************/
 
-require WF_PATH . 'inc/weather-feed-functions.php';
-require WF_PATH . 'inc/weather-feed-shortcodes.php';
-require WF_PATH . 'inc/weather-feed-widget.php';
+require WF_PATH . 'assets/inc/weather-feed-functions.php';
+require WF_PATH . 'assets/inc/weather-feed-shortcodes.php';
+require WF_PATH . 'assets/inc/weather-feed-widget.php';

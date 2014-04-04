@@ -23,7 +23,7 @@ if ( false === ( $wf_cache = get_transient( 'wf_forecast' ) ) ) {
 		if ( is_wp_error( $wf_result ) ) {
 
 		  $error_message = $wf_result->get_error_message();
-		  if ( $weather_feed_options['debug'] ) _log("Weather Feed API Error => $error_message");
+		  if ( isset( $weather_feed_options['debug'] ) && $weather_feed_options['debug'] ) _log("Weather Feed API Error => $error_message");
 
 		} else {
 

@@ -19,7 +19,7 @@ function wf_weather_feed( $atts, $content = null ) {
 
 	$wf_cache = unserialize( $wf_cache );
 
-	if ( $weather_feed_options['debug'] ) _log( $wf_cache );
+	if ( isset( $weather_feed_options['debug'] ) && $weather_feed_options['debug'] ) _log( $wf_cache );
 
 	$forecast_icons = array(
 		'clear-day'           => 'clear-day',
